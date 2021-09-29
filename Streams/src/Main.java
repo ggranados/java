@@ -46,7 +46,13 @@ public class Main {
         boolean anyMatch = people.stream()
                 .anyMatch(p->p.getAge() > 121);
 
-        System.out.println(anyMatch);
+        //System.out.println(anyMatch);
+
+        //None match
+        boolean noneMatch = people.stream()
+                .noneMatch(p -> p.getName().equals("Guillermo"));
+
+        System.out.println(noneMatch);
     }
 
 
