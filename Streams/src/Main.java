@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -52,7 +53,13 @@ public class Main {
         boolean noneMatch = people.stream()
                 .noneMatch(p -> p.getName().equals("Guillermo"));
 
-        System.out.println(noneMatch);
+        //System.out.println(noneMatch);
+
+        //Max
+        people.stream()
+                .max(Comparator.comparing(Person::getAge))
+                .ifPresent(System.out::println);
+
     }
 
 
