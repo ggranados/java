@@ -58,6 +58,7 @@ public class Main {
 
     private static List<Person> getPeople() {
         return List.of(
+                new Person("Guillermo", 38, Gender.MALE),
                 new Person("Antonio", 20, Gender.MALE),
                 new Person("Alina Smith", 33, Gender.FEMALE),
                 new Person("Helen White", 57, Gender.FEMALE),
