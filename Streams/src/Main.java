@@ -38,8 +38,8 @@ public class Main {
 
         // All match
         boolean allMatch = people.stream()
-                .allMatch(p->p.getAge() > 5);
-        
+                .allMatch(p->p.getAge() > 8);
+
         System.out.println(allMatch);
     }
 
