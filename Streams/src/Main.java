@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -7,7 +8,7 @@ public class Main {
         List<Person> people = getPeople();
 
         // Imperative approach
-
+        /*
         List<Person> females = new ArrayList<>();
 
         for(Person person: people){
@@ -15,6 +16,16 @@ public class Main {
                 females.add(person);
             }
         }
+
+        females.forEach(System.out::println);
+        */
+
+        // Declarative approach
+
+        // Filter
+        List<Person> females = people.stream()
+                .filter(p->p.getGender().equals(Gender.FEMALE))
+                .collect(Collectors.toList());
 
         females.forEach(System.out::println);
     }
