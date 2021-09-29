@@ -57,9 +57,13 @@ public class Main {
 
         //Max
         people.stream()
-                .max(Comparator.comparing(Person::getAge))
-                .ifPresent(System.out::println);
+                .max(Comparator.comparing(Person::getAge));
+                //.ifPresent(System.out::println);
 
+        //Min
+        people.stream()
+                .min(Comparator.comparing(Person::getAge))
+                .ifPresent(System.out::println);
     }
 
 
