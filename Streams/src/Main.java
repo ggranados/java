@@ -44,7 +44,7 @@ public class Main {
 
         // Any match
         boolean anyMatch = people.stream()
-                .anyMatch(p->p.getAge() > 8);
+                .anyMatch(p->p.getAge() > 121);
 
         System.out.println(anyMatch);
     }
