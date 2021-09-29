@@ -34,8 +34,13 @@ public class Main {
         List<Person> sorted =  people.stream()
                     .sorted(Comparator.comparing(Person::getAge).reversed())
                             .collect(Collectors.toList());
-        sorted.forEach(System.out::println);
+        //sorted.forEach(System.out::println);
 
+        // All match
+        boolean allMatch = people.stream()
+                .allMatch(p->p.getAge() > 5);
+        
+        System.out.println(allMatch);
     }
 
 
