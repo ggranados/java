@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +28,14 @@ public class Main {
                 .filter(p->p.getGender().equals(Gender.FEMALE))
                 .collect(Collectors.toList());
 
-        females.forEach(System.out::println);
+        //females.forEach(System.out::println);
+
+        // Sort
+        List<Person> sorted =  people.stream()
+                    .sorted(Comparator.comparing(Person::getAge))
+                            .collect(Collectors.toList());
+        sorted.forEach(System.out::println);
+        
     }
 
 
