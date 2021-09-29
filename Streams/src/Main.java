@@ -66,10 +66,19 @@ public class Main {
         Map<Gender, List<Person>> groupedByGender =  people.stream()
                 .collect(Collectors.groupingBy(Person::getGender));
 
-        groupedByGender.forEach((g, p) -> {
+        /*groupedByGender.forEach((g, p) -> {
             System.out.println(g);
             p.forEach(System.out::println);
-        });
+        });*/
+
+        // Chained get the oldest female's name
+
+        Optional<String> oldestFemale = people.stream()
+                .filter(p -> p.getGender().equals(Gender.FEMALE))
+                .max(Comparator.comparing(Person::getAge))
+                .map(Person::getName);
+
+        oldestFemale.ifPresent(System.out::println);
     }
 
 
