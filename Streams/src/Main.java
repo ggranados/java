@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -49,21 +46,30 @@ public class Main {
 
         //System.out.println(anyMatch);
 
-        //None match
+        // None match
         boolean noneMatch = people.stream()
                 .noneMatch(p -> p.getName().equals("Guillermo"));
 
         //System.out.println(noneMatch);
 
-        //Max
+        // Max
         people.stream()
                 .max(Comparator.comparing(Person::getAge));
                 //.ifPresent(System.out::println);
 
-        //Min
+        // Min
         people.stream()
-                .min(Comparator.comparing(Person::getAge))
-                .ifPresent(System.out::println);
+                .min(Comparator.comparing(Person::getAge));
+                //.ifPresent(System.out::println);
+
+        // Group
+        Map<Gender, List<Person>> groupedByGender =  people.stream()
+                .collect(Collectors.groupingBy(Person::getGender));
+
+        groupedByGender.forEach((g, p) -> {
+            System.out.println(g);
+            p.forEach(System.out::println);
+        });
     }
 
 
