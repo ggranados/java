@@ -1,4 +1,4 @@
-package cert.java11.ocp.chapter18.concurrency;
+package cert.java11.ocp.chapter18.concurrency.creatingrunnable;
 
 public class CalculateAverage implements Runnable{
 
