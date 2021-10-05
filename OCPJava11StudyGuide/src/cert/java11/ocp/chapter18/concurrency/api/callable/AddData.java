@@ -8,14 +8,22 @@ public class AddData {
         try {
             service = Executors.newSingleThreadExecutor();
             Future<Integer> result = service.submit(() -> 30 + 11);
+            service.submit(()-> {
+                try {
+                    Thread.sleep(11);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
             System.out.println(result.get());   // 41
 
         } finally {
-            service.awaitTermination(1, TimeUnit.MINUTES);
-            service.shutdown();
+            service.awaitTermination(10, TimeUnit.MILLISECONDS);
+
             // Check whether all tasks are finished
             if(service.isTerminated()) System.out.println("Finished!");
             else System.out.println("At least one task is still running");
+            service.shutdown();
         }
     }
 }
