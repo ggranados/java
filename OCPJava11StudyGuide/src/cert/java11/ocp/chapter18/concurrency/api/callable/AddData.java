@@ -12,7 +12,7 @@ public class AddData {
 
         } finally {
             service.awaitTermination(1, TimeUnit.MINUTES);
-
+            service.shutdown();
             // Check whether all tasks are finished
             if(service.isTerminated()) System.out.println("Finished!");
             else System.out.println("At least one task is still running");
