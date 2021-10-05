@@ -9,11 +9,11 @@ public class RemoveDuplicatesStreams {
     public static String[] removeDuplicates(String args[]) {
 
         // Empty & Null case
-        if(args == null || args.length == 0)
+        if(args == null)
             return new String[0];
 
         // Minimal case
-        if(args.length == 1)
+        if(args.length == 1 || args.length == 0)
             return args;
 
         return Arrays.stream(args)
