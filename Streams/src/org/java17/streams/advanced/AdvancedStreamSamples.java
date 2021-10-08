@@ -4,6 +4,7 @@ import org.java17.streams.pojo.Person;
 import org.java17.streams.pojo.User;
 import java.util.Collections;
 import java.util.Locale;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import static org.java17.streams.pojo.Person.getPeople;
 
@@ -44,8 +45,15 @@ public class AdvancedStreamSamples {
                         )
                 );
 
-        System.out.println(groupedByThenMap);
+        //System.out.println(groupedByThenMap);
 
+        //group by then tree map of sets
+        var groupedByThenTreeMap = getPeople()
+                .stream()
+                .collect(
+                        Collectors.groupingBy(Person::getGender, TreeMap::new, Collectors.toSet())
+                );
+        System.out.println(groupedByThenTreeMap);
     }
 
 
