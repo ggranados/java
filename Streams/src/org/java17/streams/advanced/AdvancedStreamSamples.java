@@ -2,11 +2,12 @@ package org.java17.streams.advanced;
 
 import org.java17.streams.pojo.Gender;
 import org.java17.streams.pojo.Person;
+import org.java17.streams.pojo.User;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Main {
+public class AdvancedStreamSamples {
 
     public static void main(String[] args) {
 
@@ -14,7 +15,8 @@ public class Main {
                 .stream()
                 .collect(Collectors.groupingBy(Person::getGender));
 
-        System.out.println(groupedBy);
+        groupedBy.entrySet().stream().forEach(System.out::println);
+
     }
 
 
