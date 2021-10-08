@@ -5,6 +5,7 @@ import org.java17.streams.pojo.Person;
 import org.java17.streams.pojo.User;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class AdvancedStreamSamples {
@@ -15,7 +16,22 @@ public class AdvancedStreamSamples {
                 .stream()
                 .collect(Collectors.groupingBy(Person::getGender));
 
-        groupedBy.entrySet().stream().forEach(System.out::println);
+        //groupedBy.entrySet().stream().forEach(System.out::println);
+
+
+        var mapped = getPeople()
+                .stream()
+                .map(
+                        p -> {
+                            return new User(
+                                    p.getName().toLowerCase(Locale.ROOT).replace(' ','.'),
+                                    p.getName().substring(0,3)+p.getGender()+p.getAge());
+                        }
+                )
+                .collect(Collectors.toList());
+
+        mapped.stream().forEach(System.out::println);
+
 
     }
 
