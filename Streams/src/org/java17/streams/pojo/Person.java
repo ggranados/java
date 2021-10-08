@@ -1,3 +1,5 @@
+package org.java17.streams.pojo;
+
 public class Person {
 
     private final String name;
@@ -24,7 +26,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "org.java17.streams.basic.pojo.Person{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", gender=" + gender +

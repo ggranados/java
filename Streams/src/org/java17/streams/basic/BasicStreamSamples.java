@@ -1,16 +1,20 @@
+package org.java17.streams.basic;
+
+import org.java17.streams.pojo.*;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Main {
+public class BasicStreamSamples {
 
     public static void main(String[] args) {
         List<Person> people = getPeople();
 
         // Imperative approach
         /*
-        List<Person> females = new ArrayList<>();
+        List<org.java17.streams.basic.pojo.Person> females = new ArrayList<>();
 
-        for(Person person: people){
+        for(org.java17.streams.basic.pojo.Person person: people){
             if(person.getGender().equals(Gender.FEMALE)){
                 females.add(person);
             }
