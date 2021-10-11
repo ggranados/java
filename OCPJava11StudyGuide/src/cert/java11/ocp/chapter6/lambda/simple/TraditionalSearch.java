@@ -14,6 +14,7 @@ public static void main(String[] args) {
         // pass class that does check
         print(animals, a -> a.canHop());
         print(animals, a-> a.canSwim());
+        print(animals, a-> !a.canSwim());
 
         }
 
