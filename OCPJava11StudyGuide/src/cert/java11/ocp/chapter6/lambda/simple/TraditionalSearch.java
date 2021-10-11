@@ -13,6 +13,8 @@ public static void main(String[] args) {
 
         // pass class that does check
         print(animals, a -> a.canHop());
+        print(animals, a-> a.canSwim());
+
         }
 
         private static void print(List<Animal> animals, CheckTrait checker) {
