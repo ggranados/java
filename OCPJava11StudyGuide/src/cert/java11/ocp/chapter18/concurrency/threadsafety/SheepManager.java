@@ -1,13 +1,14 @@
 package cert.java11.ocp.chapter18.concurrency.threadsafety;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SheepManager {
 
-    private int sheepCount = 0;
+    private AtomicInteger sheepCount = new AtomicInteger(0);
 
     private void incrementAndReport() {
-        System.out.print((++sheepCount)+" ");
+        System.out.print(sheepCount.incrementAndGet()+" ");
     }
 
     public static void main(String[] args) {
