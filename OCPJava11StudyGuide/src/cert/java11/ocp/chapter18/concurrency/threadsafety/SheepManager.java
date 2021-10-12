@@ -4,9 +4,10 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class SheepManager {
+    private final Object herd = new Object();
     private int sheepCount = 0;
     private void incrementAndReport() {
-        synchronized(this) {
+        synchronized(herd) {
             System.out.print((++sheepCount)+" ");
         }
     }
