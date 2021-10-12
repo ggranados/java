@@ -1,6 +1,8 @@
 package cert.java11.ocp.chapter6.lambda.simple;
 
 import java.util.*;
+import java.util.function.Predicate;
+
 public class TraditionalSearch {
 public static void main(String[] args) {
 
@@ -18,7 +20,7 @@ public static void main(String[] args) {
 
         }
 
-        private static void print(List<Animal> animals, CheckTrait checker) {
+        private static void print(List<Animal> animals, Predicate<Animal> checker) {
         for (Animal animal : animals) {
             // the general check
             if (checker.test(animal))
