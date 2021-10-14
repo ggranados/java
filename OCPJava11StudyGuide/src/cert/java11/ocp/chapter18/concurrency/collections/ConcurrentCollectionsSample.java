@@ -1,12 +1,10 @@
 package cert.java11.ocp.chapter18.concurrency.collections;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class    ConcurrentCollectionsSample {
@@ -41,6 +39,13 @@ public class    ConcurrentCollectionsSample {
                 .forEach((e) -> System.out.println(
                         e.getKey() + "-" + e.getValue())); // koala-bamboo
 
-        
+        List<Integer> favNumbers =
+                new CopyOnWriteArrayList<>(List.of(4,3,42));
+        for(var n: favNumbers) {
+            System.out.print(n + " ");
+            favNumbers.add(9);
+        }
+        System.out.println();
+        System.out.println("Size: " + favNumbers.size());
     }
 }
