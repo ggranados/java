@@ -2,8 +2,12 @@ package cert.java11.ocp.chapter18.concurrency.collections;
 
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ConcurrentSkipListMap;
+import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.stream.Collectors;
 
 public class    ConcurrentCollectionsSample {
     public static void main(String[] args) {
@@ -22,5 +26,21 @@ public class    ConcurrentCollectionsSample {
         queue.offer(31);
         System.out.println(queue.peek());  // 31
         System.out.println(queue.poll());  // 31
+
+        Set<String> gardenAnimals = new ConcurrentSkipListSet<>();
+        gardenAnimals.add("rabbit");
+        gardenAnimals.add("gopher");
+        System.out.println(gardenAnimals.stream()
+                .collect(Collectors.joining(",")));  // gopher,rabbit
+
+        Map<String, String> rainForestAnimalDiet
+                = new ConcurrentSkipListMap<>();
+        rainForestAnimalDiet.put("koala", "bamboo");
+        rainForestAnimalDiet.entrySet()
+                .stream()
+                .forEach((e) -> System.out.println(
+                        e.getKey() + "-" + e.getValue())); // koala-bamboo
+
+        
     }
 }
