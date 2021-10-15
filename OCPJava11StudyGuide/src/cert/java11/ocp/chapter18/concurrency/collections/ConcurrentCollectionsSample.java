@@ -64,5 +64,17 @@ public class    ConcurrentCollectionsSample {
         }
         System.out.println();
         System.out.println("Size: "+ favLetters.size());
+
+        // delete while iterating with CopyOnWriteArrayList
+        List<String> birds = new CopyOnWriteArrayList<>();
+        birds.add("hawk");
+        birds.add("hawk");
+        birds.add("hawk");
+
+        for (String bird : birds)
+            birds.remove(bird);
+        System.out.print(birds.size()); // 0
+
+
     }
 }
