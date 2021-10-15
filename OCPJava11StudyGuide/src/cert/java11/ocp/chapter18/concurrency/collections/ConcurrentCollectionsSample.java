@@ -84,5 +84,16 @@ public class    ConcurrentCollectionsSample {
             iterator.remove();
         }
         System.out.println(birds.size());  // 0
+
+        // LinkedBlockingQueue
+        try {
+            var blockingQueue = new LinkedBlockingQueue<Integer>();
+            blockingQueue.offer(39);
+            blockingQueue.offer(3, 4, TimeUnit.SECONDS);
+            System.out.println(blockingQueue.poll());
+            System.out.println(blockingQueue.poll(10, TimeUnit.MILLISECONDS));
+        } catch (InterruptedException e) {
+            // Handle interruption
+        }
     }
 }
