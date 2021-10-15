@@ -16,7 +16,7 @@ public class ParallelStreamSample {
         List.of(1,2,3,4,5)
                 .parallelStream()
                 .map(w -> doWork(w))
-                .forEach(s -> System.out.print(s + " "));
+                .forEachOrdered(s -> System.out.print(s + " "));
 
         System.out.println();
         var timeTaken = (System.currentTimeMillis()-start)/1000;
