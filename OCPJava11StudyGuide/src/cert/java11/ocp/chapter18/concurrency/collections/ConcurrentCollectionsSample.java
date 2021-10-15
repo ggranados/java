@@ -1,9 +1,6 @@
 package cert.java11.ocp.chapter18.concurrency.collections;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -73,8 +70,19 @@ public class    ConcurrentCollectionsSample {
 
         for (String bird : birds)
             birds.remove(bird);
-        System.out.print(birds.size()); // 0
+        System.out.println(birds.size()); // 0
 
+        //delete while iterating with ArrayList Iterator
+        List<String> birdList = new ArrayList<>();
+        birdList.add("hawk");
+        birdList.add("hawk");
+        birdList.add("hawk");
 
+        var iterator = birdList.iterator();
+        while(iterator.hasNext()) {
+            iterator.next();
+            iterator.remove();
+        }
+        System.out.println(birds.size());  // 0
     }
 }
