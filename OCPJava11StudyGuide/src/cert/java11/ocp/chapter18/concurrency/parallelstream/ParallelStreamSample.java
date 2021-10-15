@@ -14,7 +14,7 @@ public class ParallelStreamSample {
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
         List.of(1,2,3,4,5)
-                .stream()
+                .parallelStream()
                 .map(w -> doWork(w))
                 .forEach(s -> System.out.print(s + " "));
 
