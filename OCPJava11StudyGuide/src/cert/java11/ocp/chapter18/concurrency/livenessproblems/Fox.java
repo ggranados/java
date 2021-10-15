@@ -9,11 +9,11 @@ class Water {}
 public class Fox {
 
     public void eatAndDrink(Food food, Water water) {
-        synchronized(food) {
-            System.out.println("Got Food!");
+        synchronized(water) {
+            System.out.println("Got Water!");
             move();
-            synchronized(water) {
-                System.out.println("Got Water!");
+            synchronized(food) {
+                System.out.println("Got Food!");
             }
         }
     }
