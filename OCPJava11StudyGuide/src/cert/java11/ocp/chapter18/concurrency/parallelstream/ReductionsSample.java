@@ -1,6 +1,10 @@
 package cert.java11.ocp.chapter18.concurrency.parallelstream;
 
 import java.util.List;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.concurrent.ConcurrentSkipListSet;
+import java.util.stream.Stream;
 
 public class ReductionsSample {
     public static void main(String[] args) {
@@ -30,5 +34,12 @@ public class ReductionsSample {
         System.out.println(List.of("w","o","l","f")
                 .parallelStream()
                 .reduce("X", String::concat));  // XwXoXlXf
+
+        //parallel collecting
+        Stream<String> stream = Stream.of("w", "o", "l", "f").parallel();
+        SortedSet<String> set = stream.collect(ConcurrentSkipListSet::new,
+                Set::add,
+                Set::addAll);
+        System.out.println(set);  // [f, l, o, w]
     }
 }
