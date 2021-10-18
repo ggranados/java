@@ -15,13 +15,20 @@ public class ReductionsSample {
                 .parallelStream()
                 .findAny().get());
 
-        //reduce parallel stream
+        // reduce parallel stream
         System.out.println(List.of('w', 'o', 'l', 'f')
                 .parallelStream()
                 .reduce("",
                         (s1,c) -> s1 + c,
                         (s2,s3) -> s2 + s3));  // wolf
 
-        
+        // problematic accumulator
+        System.out.println(List.of(1,2,3,4,5,6)
+                .parallelStream()
+                .reduce(0, (a,b) -> (a - b)));  // PROBLEMATIC ACCUMULATOR
+
+        System.out.println(List.of("w","o","l","f")
+                .parallelStream()
+                .reduce("X", String::concat));  // XwXoXlXf
     }
 }
