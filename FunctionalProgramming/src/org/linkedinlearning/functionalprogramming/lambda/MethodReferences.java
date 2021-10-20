@@ -7,6 +7,9 @@ import java.util.function.*;
 
 public class MethodReferences {
 
+	interface ThreadSupplier {
+		Thread giveMeAThread();
+	}
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
@@ -14,5 +17,18 @@ public class MethodReferences {
 		// Static method
 		Supplier<Thread> s1 = Thread::currentThread;
 
+		// Nothing special about 'Supplier'...
+		ThreadSupplier ts = Thread::currentThread;
+
+
+		// Instance method (instance specified)
+		Employee frank = new Employee("Frank", 3000);
+
+		Integer i = frank.getSalary();
+		Supplier<Integer> s2 = frank::getSalary;
+
+		System.out.println(s2.get());
 	}
+
+
 }
