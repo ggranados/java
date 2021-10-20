@@ -9,5 +9,11 @@ public class LambdaInference {
         // Standard syntax
         Consumer<String> c1 = msg -> System.out.println(msg.length());
 
+        // Compile-time error: not enough info
+        //Object x1 = msg -> System.out.println(msg.length());
+
+        //Compile-time error: not enough info
+        //Object x2 = (String msg) -> System.out.println(msg.length());
+
     }
 }
