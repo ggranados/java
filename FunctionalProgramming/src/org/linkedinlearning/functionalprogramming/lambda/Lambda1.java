@@ -21,6 +21,9 @@ public class Lambda1 {
         Comparator<Employee> byNameLambda1 =
                 (Employee a, Employee b) -> {return a.getName().compareTo(b.getName()); };
 
+        // Removing parameter types
+        Comparator<Employee> byNameLambda2 =
+                (a,b) -> { return a.getName().compareTo(b.getName()); };
 
 
     }
