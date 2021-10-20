@@ -1,4 +1,4 @@
-  import java.util.function.Consumer;
+import java.util.function.Consumer;
 
 public class LambdaImplementation {
 
@@ -25,6 +25,33 @@ public class LambdaImplementation {
 			myPrinter2.accept(myPrinter2.toString());
 		}
 
+
+		// Constant-capturing lambda, one instance
+		System.out.println("\nConstant-capturing lambda:");
+		final int secret = 42;
+		for (int i = 0; i < 5; i++) {
+			Consumer<String> myPrinter3 =
+					msg -> System.out.println("Consuming " + msg + ", " + secret);
+
+			myPrinter3.accept(myPrinter3.toString());
+		}
+
+
+		(new LambdaImplementation()).foo();
+
+	}
+
+	private int id = 1;
+	public void foo() {
+		System.out.println("\nInstance-capturing lambda:");
+
+		for (int i=0; i<5; i++) {
+			// this-capturing lambda, many instances!
+			Consumer<String> myPrinter4 =
+					msg -> System.out.println("Consuming " + msg + ", " + id);
+
+			myPrinter4.accept(myPrinter4.toString());
+		}
 	}
 
 }
