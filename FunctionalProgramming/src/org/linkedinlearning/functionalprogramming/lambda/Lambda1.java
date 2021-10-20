@@ -17,6 +17,10 @@ public class Lambda1 {
             }
         };
 
+        // First lambda expression
+        Comparator<Employee> byNameLambda1 =
+                (Employee a, Employee b) -> {return a.getName().compareTo(b.getName()); };
+
 
 
     }
