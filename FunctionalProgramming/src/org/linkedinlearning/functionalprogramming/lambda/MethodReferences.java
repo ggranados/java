@@ -28,6 +28,9 @@ public class MethodReferences {
 		Supplier<Integer> s2 = frank::getSalary;
 
 		System.out.println(s2.get());
+
+		// A common instance method (instance specified)
+		Consumer<String> c1 = System.out::println;
 	}
 
 
