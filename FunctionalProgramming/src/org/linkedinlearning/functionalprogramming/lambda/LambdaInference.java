@@ -17,5 +17,15 @@ public class LambdaInference {
 
         // Ok: cast added
         Object x3 = (Consumer<String>)((String msg) -> System.out.println(msg.length()));
+
+
+
+        //OK: but inferred type is Object
+        Consumer<?> c2 = msg -> System.out.println(msg);
+
+        //Compile-time error: Inference is *not* based on body of lambda
+        //Consumer<?> c3 = msg -> System.out.println(msg.length);
+
+
     }
 }
