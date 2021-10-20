@@ -34,5 +34,12 @@ public class Interfaces {
         System.out.println("Then null");
         System.out.println(byNameThenNull.compare(mike, louise));
         System.out.println(byNameThenNull.compare(mike, null));
+
+        // a default method in Comparator
+        var nullThenByDecreasingName = byNameThenNull.reversed();
+        System.out.println("Reversed");
+        System.out.println(byNameThenNull.compare(mike, louise));
+        System.out.println(byNameThenNull.compare(mike, null));
+
     }
 }
