@@ -25,6 +25,9 @@ public class Lambda1 {
         Comparator<Employee> byNameLambda2 =
                 (a,b) -> { return a.getName().compareTo(b.getName()); };
 
+        // Removing braces and return
+        Comparator<Employee> byNameLambda3 =
+                (a,b) -> a.getName().compareTo(b.getName());
 
     }
 }
