@@ -44,7 +44,7 @@ public class LambdaCapture {
         contentPane.add(helloButton);
         contentPane.add(goodbyeButton);
 
-        staticTextField = null;
+        // staticTextField = null;
         // localTextField = null;
 
         frame.setAlwaysOnTop( true );
