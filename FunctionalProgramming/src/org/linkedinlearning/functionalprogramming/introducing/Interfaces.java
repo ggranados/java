@@ -27,5 +27,12 @@ public class Interfaces {
         }catch (NullPointerException e){
             System.out.println(e);
         }
+
+        // static method in comparator
+        var byNameThenNull = Comparator.nullsLast(byName);
+
+        System.out.println("Then null");
+        System.out.println(byNameThenNull.compare(mike, louise));
+        System.out.println(byNameThenNull.compare(mike, null));
     }
 }
