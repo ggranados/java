@@ -15,5 +15,7 @@ public class LambdaInference {
         //Compile-time error: not enough info
         //Object x2 = (String msg) -> System.out.println(msg.length());
 
+        // Ok: cast added
+        Object x3 = (Consumer<String>)((String msg) -> System.out.println(msg.length()));
     }
 }
