@@ -16,6 +16,14 @@ public class LambdaImplementation {
 			myPrinter1.accept(myPrinter1.toString());
 		}
 
+		// Non-capturing lambda, one instance
+		System.out.println("\nNon-capturing lambda:");
+		for (int i=0; i<5; i++) {
+			Consumer<String> myPrinter2 =
+					msg -> System.out.println("Consuming " + msg);
+
+			myPrinter2.accept(myPrinter2.toString());
+		}
 
 	}
 
