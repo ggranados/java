@@ -29,5 +29,14 @@ public class Lambda1 {
         Comparator<Employee> byNameLambda3 =
                 (a,b) -> a.getName().compareTo(b.getName());
 
+
+        // Expression with no parameter
+        Runnable r = () -> {
+            System.out.println("A compact Runnable!");
+        };
+
+        Thread t1 = new Thread(r);
+
+        
     }
 }
