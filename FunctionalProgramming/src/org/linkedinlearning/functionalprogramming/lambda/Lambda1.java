@@ -3,6 +3,7 @@ package org.linkedinlearning.functionalprogramming.lambda;
 import org.linkedinlearning.functionalprogramming.pojo.Employee;
 
 import java.util.Comparator;
+import java.util.function.Consumer;
 
 public class Lambda1 {
 
@@ -44,5 +45,9 @@ public class Lambda1 {
 
         // No need for braces here
         Thread t3 = new Thread(() -> System.out.println("An implicit Runnable!"));
+
+        // Expression with one parameter
+        Consumer<String> lengthPrinter =
+                s -> System.out.println(s.length());
     }
 }
