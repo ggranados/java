@@ -37,6 +37,10 @@ public class Lambda1 {
 
         Thread t1 = new Thread(r);
 
-        
+        // No need to even mention Runnable
+        Thread t2 = new Thread(() -> {
+            System.out.println("An implicit Runnable");
+        });
+
     }
 }
