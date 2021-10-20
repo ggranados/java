@@ -42,5 +42,7 @@ public class Lambda1 {
             System.out.println("An implicit Runnable");
         });
 
+        // No need for braces here
+        Thread t3 = new Thread(() -> System.out.println("An implicit Runnable!"));
     }
 }
