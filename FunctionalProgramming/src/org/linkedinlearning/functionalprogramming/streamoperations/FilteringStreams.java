@@ -25,6 +25,12 @@ public class FilteringStreams {
                 .filter(e -> e.getSalary() <= 1700)
                 .forEach(System.out::println);
 
+        System.out.println(" ");
 
+        // Employees with at most 1700: order then take While
+        Arrays.stream(Employee.getData())
+                .sorted(Comparator.comparing(Employee::getSalary))
+                .takeWhile(e -> e.getSalary() <= 1700)
+                .forEach(System.out::println);
     }
 }
