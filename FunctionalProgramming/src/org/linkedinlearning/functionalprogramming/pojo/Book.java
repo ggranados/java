@@ -12,5 +12,9 @@ public class Book {
         this.words = words;
     }
 
+    static Book newBook(String title, List<String> words){
+        return new Book(title,words);
+    }
+
 
 }
