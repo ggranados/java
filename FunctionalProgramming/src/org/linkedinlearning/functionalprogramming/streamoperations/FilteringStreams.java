@@ -9,8 +9,8 @@ public class FilteringStreams {
 
         var randoms = Stream.generate(new Random()::nextInt);
 
-        randoms.filter(n -> n>0)
-                .distinct()
+        randoms.distinct()
+                .filter(n -> n>0)
                 .limit(10)
                 .forEach(System.out::println);
 
