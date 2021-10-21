@@ -1,4 +1,4 @@
-package org.linkedinlearning.functionalprogramming.streams;
+package org.linkedinlearning.functionalprogramming.streamoperations;
 
 import org.linkedinlearning.functionalprogramming.pojo.Book;
 
