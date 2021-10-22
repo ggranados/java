@@ -20,6 +20,7 @@ public class MapSample {
         SalaryAdder adder = new SalaryAdder();
 
         Arrays.stream(Employee.getData())
+                .parallel()
                 .forEach(adder::accept);
 
         var sumSalary = adder.total;
@@ -27,7 +28,7 @@ public class MapSample {
 
     public static class SalaryAdder{
         int total;
-        public void accept (Employee e){
+        public synchronized void accept (Employee e){
             total += e.getSalary();
         }
     }
