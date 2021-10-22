@@ -1,5 +1,9 @@
 package org.linkedinlearning.functionalprogramming.pojo;
 
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Employee {
     private String name;
     private int salary;
@@ -45,6 +49,17 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    private static Random rand = new Random();
+    public static Employee[] randomlyGenerate(int n) {
+        return Stream.generate(() -> {
+            final int NAME_LENGTH = 10;
+            String name =  rand.ints(NAME_LENGTH, 0, 25)
+                    .mapToObj(i -> "" + (char)(61+i))
+                    .collect(Collectors.joining());
+            return new Employee(name, rand.nextInt(10000));
+        }).limit(n).toArray(Employee[]::new);
     }
 }
 
