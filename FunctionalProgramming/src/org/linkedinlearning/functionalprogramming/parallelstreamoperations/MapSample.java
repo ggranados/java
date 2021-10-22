@@ -15,6 +15,21 @@ public class MapSample {
                 .sum();
 
         System.out.println("Total:"+totalSalary);
+
+
+        SalaryAdder adder = new SalaryAdder();
+
+        Arrays.stream(Employee.getData())
+                .forEach(adder::accept);
+
+        var sumSalary = adder.total;
     }
 
+    public static class SalaryAdder{
+        int total;
+        public void accept (Employee e){
+            total += e.getSalary();
+        }
+    }
 }
+
