@@ -20,7 +20,7 @@ public class Book {
         return Collections.unmodifiableList(words);
     }
 
-    static Book newBook(String title, List<String> words){
+    public static Book newBook(String title, List<String> words){
         return new Book(title,words);
     }
 
