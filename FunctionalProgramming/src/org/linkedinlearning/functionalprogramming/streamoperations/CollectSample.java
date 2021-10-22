@@ -42,6 +42,37 @@ public class CollectSample {
                         )
                 );
         System.out.println(tree);
+
+
+        var map = Arrays.stream(Employee.getData())
+                .collect(
+                        Collectors.toMap(
+                                Employee::getName,
+                                Employee::getSalary,
+                                (n1, n2) -> n1+n2
+                        )
+                );
+
+        System.out.println(map);
+
+        var grouped = Arrays.stream(Employee.getData())
+                .collect(
+                        Collectors.groupingBy(
+                                e -> e.getSalary()/1500
+                        )
+                );
+
+        System.out.println(grouped);
+
+
+        var partitioned = Arrays.stream(Employee.getData())
+                .collect(
+                        Collectors.partitioningBy(
+                                e -> "ABC".contains(String.valueOf(e.getName().charAt(0)))
+                        )
+                );
+
+        System.out.println(partitioned);
     }
 
 
