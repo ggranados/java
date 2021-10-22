@@ -3,6 +3,7 @@ package org.linkedinlearning.functionalprogramming.parallelstreamoperations;
 import org.linkedinlearning.functionalprogramming.pojo.Employee;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.LongAdder;
 
 public class MapSample {
 
@@ -23,13 +24,13 @@ public class MapSample {
                 .parallel()
                 .forEach(adder::accept);
 
-        var sumSalary = adder.total;
+        var sumSalary = adder.total.longValue();
     }
 
     public static class SalaryAdder{
-        int total;
-        public synchronized void accept (Employee e){
-            total += e.getSalary();
+        LongAdder total;
+        public void accept (Employee e){
+            total.add(e.getSalary());
         }
     }
 }
