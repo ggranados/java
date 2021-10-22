@@ -13,12 +13,12 @@ public class CollectSample {
                 .parallel()
                 .flatMap(e-> Stream.of(e.getName()))
                 .collect(
-                        ()-> new StringBuilder(),   //factory
-                        (StringBuilder b, String s ) -> {b.append(s); b.append(",");},  //accumulator
-                        (StringBuilder b1, StringBuilder b2) -> b1.append(b2)   // combiner (for parallel)
+                        StringBuilder::new,   //factory
+                        StringBuilder::append,  //accumulator
+                        StringBuilder::append   // combiner (for parallel)
                 );
 
-        System.out.println(result.toString());
+        System.out.println(result);
 
     }
 }
