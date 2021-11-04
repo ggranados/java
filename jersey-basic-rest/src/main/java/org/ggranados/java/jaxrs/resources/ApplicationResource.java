@@ -8,6 +8,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import static org.ggranados.java.jaxrs.entities.Address.getAddressList;
 
 @Path("/rest")
 public class ApplicationResource {
@@ -25,7 +28,9 @@ public class ApplicationResource {
     @Produces("application/json")
     public Response getAddresses(){
         return Response.status(Response.Status.OK)
-                .entity(Arrays.asList(new Address(), new Address()))
+                .entity(getAddressList())
                 .build();
     }
+
+
 }
