@@ -14,7 +14,7 @@ Using:
    - [Jetty Maven Plugin](https://wiki.eclipse.org/Jetty/Feature/Jetty_Maven_Plugin) version 9.4.44.v20210927 (Jetty application server running along)
    - Maven Compiler Plugin version 3.8.0
    - Web Application Descriptor version 4.0
-
+   - [Javafaker](https://github.com/DiUS/java-faker)
 
 Run it with:
 
