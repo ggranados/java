@@ -10,5 +10,8 @@ public class Main {
 
         System.out.println(value);
 
+        Optional.ofNullable(null)
+                .orElseThrow(() -> new IllegalArgumentException());
+
     }
 }
