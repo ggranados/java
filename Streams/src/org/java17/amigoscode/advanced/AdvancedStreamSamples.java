@@ -1,14 +1,14 @@
-package org.java17.streams.advanced;
+package org.java17.amigoscode.advanced;
 
-import org.java17.streams.pojo.Person;
-import org.java17.streams.pojo.User;
+import org.java17.amigoscode.pojo.Person;
+import org.java17.amigoscode.pojo.User;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.TreeMap;
 import java.util.stream.Collectors;
-import static org.java17.streams.pojo.Person.getPeople;
+import static org.java17.amigoscode.pojo.Person.getPeople;
 
 public class AdvancedStreamSamples {
 
