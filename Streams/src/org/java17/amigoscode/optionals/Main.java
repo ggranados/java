@@ -8,10 +8,16 @@ public class Main {
         var value = Optional.ofNullable("Hello")
                 .orElseGet(() -> "default");
 
-        System.out.println(value);
+        //System.out.println(value);
 
-        Optional.ofNullable(null)
-                .orElseThrow(() -> new IllegalArgumentException());
+        //Optional.ofNullable(null)
+        //        .orElseThrow(() -> new IllegalArgumentException());
+
+
+        Optional.ofNullable("Hello")
+                .ifPresent(val -> {
+                    System.out.println(val);
+                });
 
     }
 }
