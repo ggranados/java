@@ -16,8 +16,12 @@ public class Main {
 
         Optional.ofNullable("Hello")
                 .ifPresent(val -> {
-                    System.out.println(val);
+                    //System.out.println(val);
                 });
 
+
+        Optional.ofNullable(null)
+                .ifPresentOrElse( System.out::println,
+                        () -> System.out.println("null value"));
     }
 }
