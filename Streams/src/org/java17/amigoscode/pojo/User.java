@@ -1,4 +1,4 @@
-package org.java17.streams.pojo;
+package org.java17.amigoscode.pojo;
 
 public class User {
 
