@@ -1,6 +1,6 @@
 package com.company;
 
-@EmptyAnnotation
+@FilledAnnotation(value = 13, args = {"java","17","annotations"})
 public class Main {
 
     @EmptyAnnotation
@@ -9,5 +9,13 @@ public class Main {
     @EmptyAnnotation
     public static void main(String[] args) {
 	// write your code here
+    }
+
+    public static void readValue(@EmptyAnnotation String value){
+
+    }
+
+    public static void doSomething(){
+        System.out.println("Something");
     }
 }
