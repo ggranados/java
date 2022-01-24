@@ -1,9 +1,11 @@
 package com.company;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Target;
+import java.lang.annotation.*;
 
 @Target(ElementType.TYPE)
+@Inherited
+@Documented
+@Retention(RetentionPolicy.RUNTIME)
 public @ interface FilledAnnotation {
 
     String name() default "Bob";
