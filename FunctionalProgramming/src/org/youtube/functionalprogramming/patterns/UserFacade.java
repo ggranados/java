@@ -2,27 +2,16 @@ package org.youtube.functionalprogramming.patterns;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserFacade {
 
-    private UserRepo userRepo;
+    private UserRepo userRepo = new UserRepo();
 
     public List<UserDto> getAllUser(){
-        List<User> users = userRepo.findAll();
-        List<UserDto> dtos = new ArrayList<>();
-        for(User user : users){
-            UserDto dto = toDto(user);
-            dtos.add(dto);
-        }
-        return dtos;
+        return userRepo.findAll().stream().map(UserDto::new).collect(Collectors.toList());
     }
 
-    private UserDto toDto(User user) {
-        UserDto dto = new UserDto();
-        dto.setUsername(user.getUserName());
-        dto.setFullName(user.getFirstName() + " " + user.getLastName());
-        dto.setActive(user.getDeactivationDate == null);
-        return dto;
-    }
+
 
 }
