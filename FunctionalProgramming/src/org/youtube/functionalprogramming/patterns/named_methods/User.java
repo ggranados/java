@@ -1,4 +1,4 @@
-package org.youtube.functionalprogramming.patterns;
+package org.youtube.functionalprogramming.patterns.named_methods;
 
 import java.time.LocalDate;
 

@@ -1,6 +1,4 @@
-package org.youtube.functionalprogramming.patterns;
-
-import java.time.LocalDate;
+package org.youtube.functionalprogramming.patterns.named_methods;
 
 public class UserDto {
 
@@ -12,6 +10,10 @@ public class UserDto {
         this.setUsername(user.getUserName());
         this.setFullName(user.getFirstName() + " " + user.getLastName());
         this.setActive(user.getDeactivationDate() == null);
+    }
+
+    public UserDto() {
+
     }
 
     public String getUsername() {
