@@ -1,26 +1,27 @@
 package org.youtube.functionalprogramming.patterns.nullpointer;
 
+import java.util.Optional;
+
 public class DiscountService {
 
     private String getDiscountLine(Customer customer){
-        Integer d = getDiscountPercentage(customer.getMemberCard());
-        if (d != null){
-            return "Discount%: " + d;
+        Optional<Integer> d = getDiscountPercentage(customer.getMemberCard());
+        if (d.isPresent()){
+            return "Discount%: " + d.get();
         }
-        else
-            return "";
+        else return "";
     }
 
-    private Integer getDiscountPercentage(MemberCard card){
+    private Optional<Integer> getDiscountPercentage(MemberCard card){
         if (card.getFidelityPoints >= 100){
-            return 5;
+            return Optional.of(5);
         }
 
         if (card.getFidelityPoints >= 50){
-            return 3;
+            return Optional.of(3);
         }
 
-        return null;
+        return Optional.empty();
     }
 
     public static void main(String[] args) {
