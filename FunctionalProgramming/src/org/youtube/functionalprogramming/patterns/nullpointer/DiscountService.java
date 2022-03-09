@@ -6,10 +6,7 @@ public class DiscountService {
 
     private String getDiscountLine(Customer customer){
         Optional<Integer> d = getDiscountPercentage(customer.getMemberCard());
-        if (d.isPresent()){
-            return "Discount%: " + d.get();
-        }
-        else return "";
+        return d.map(i -> "Discount%: " + d.get()).orElse("");
     }
 
     private Optional<Integer> getDiscountPercentage(MemberCard card){
