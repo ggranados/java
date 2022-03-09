@@ -5,8 +5,10 @@ import java.util.Optional;
 public class DiscountService {
 
     private String getDiscountLine(Customer customer){
-        Optional<Integer> d = getDiscountPercentage(customer.getMemberCard());
-        return d.map(i -> "Discount%: " + d.get()).orElse("");
+
+        return getDiscountPercentage(customer.getMemberCard())
+                .map(i -> "Discount%: " + i)
+                .orElse("");
     }
 
     private Optional<Integer> getDiscountPercentage(MemberCard card){
