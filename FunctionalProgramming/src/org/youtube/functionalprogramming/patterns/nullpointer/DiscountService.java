@@ -8,7 +8,7 @@ public class DiscountService {
     private String getDiscountLine(Customer customer){
 
         return customer.getMemberCard()
-                .flatMap(card -> getDiscountPercentage(card))
+                .flatMap(this::getDiscountPercentage)
                 .map(d -> "Discount%: " + d)
                 .orElse("");
     }
