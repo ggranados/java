@@ -1,5 +1,6 @@
 package org.youtube.functionalprogramming.patterns.nullpointer;
 
+import javax.swing.text.html.Option;
 import java.util.Optional;
 
 public class DiscountService {
@@ -11,12 +12,16 @@ public class DiscountService {
                 .orElse("");
     }
 
-    private Optional<Integer> getDiscountPercentage(MemberCard card){
-        if (card.getFidelityPoints >= 100){
+    private Optional<Integer> getDiscountPercentage(Optional<MemberCard> card) {
+        if(!card.isPresent()){
+            return Optional.empty();
+        }
+
+        if (card.get().getFidelityPoints() >= 100) {
             return Optional.of(5);
         }
 
-        if (card.getFidelityPoints >= 50){
+        if (card.get().getFidelityPoints() >= 50) {
             return Optional.of(3);
         }
 

@@ -2,25 +2,25 @@ package org.youtube.functionalprogramming.patterns.nullpointer;
 
 public class MemberCard {
 
-    public Integer getFidelityPoints;
+    public Integer fidelityPoints;
 
     public MemberCard(Integer fidelityPoints) {
-        getFidelityPoints = fidelityPoints;
+        this.fidelityPoints = fidelityPoints;
     }
 
 
     @Override
     public String toString() {
         return "MemberCard{" +
-                "getFidelityPoints=" + getFidelityPoints;
+                "getFidelityPoints=" + fidelityPoints;
     }
 
-    public Integer getGetFidelityPoints() {
-        return getFidelityPoints;
+
+    public void setFidelityPoints(Integer fidelityPoints) {
+        this.fidelityPoints = fidelityPoints;
     }
 
-    public void setGetFidelityPoints(Integer getFidelityPoints) {
-        this.getFidelityPoints = getFidelityPoints;
+    public Integer getFidelityPoints() {
+        return fidelityPoints;
     }
-
 }

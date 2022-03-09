@@ -1,5 +1,7 @@
 package org.youtube.functionalprogramming.patterns.nullpointer;
 
+import java.util.Optional;
+
 public class Customer {
     private MemberCard memberCard;
 
@@ -10,8 +12,8 @@ public class Customer {
         this.memberCard = memberCard;
     }
 
-    public MemberCard getMemberCard() {
-        return memberCard;
+    public Optional<MemberCard> getMemberCard() {
+        return Optional.ofNullable(memberCard);
     }
 
     public void setMemberCard(MemberCard memberCard) {
