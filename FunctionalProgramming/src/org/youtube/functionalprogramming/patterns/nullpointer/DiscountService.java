@@ -7,21 +7,19 @@ public class DiscountService {
 
     private String getDiscountLine(Customer customer){
 
-        return getDiscountPercentage(customer.getMemberCard())
-                .map(i -> "Discount%: " + i)
+        return customer.getMemberCard()
+                .flatMap(card -> getDiscountPercentage(card))
+                .map(d -> "Discount%: " + d)
                 .orElse("");
     }
 
-    private Optional<Integer> getDiscountPercentage(Optional<MemberCard> card) {
-        if(!card.isPresent()){
-            return Optional.empty();
-        }
+    private Optional<Integer> getDiscountPercentage(MemberCard card) {
 
-        if (card.get().getFidelityPoints() >= 100) {
+        if (card.getFidelityPoints() >= 100) {
             return Optional.of(5);
         }
 
-        if (card.get().getFidelityPoints() >= 50) {
+        if (card.getFidelityPoints() >= 50) {
             return Optional.of(3);
         }
 
