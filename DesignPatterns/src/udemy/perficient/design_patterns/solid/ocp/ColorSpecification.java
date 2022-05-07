@@ -1,12 +1,7 @@
 package udemy.perficient.design_patterns.solid.ocp;
 
-public class ColorSpecification implements Specification<Product>{
-
-    private final Color color;
-
-    public ColorSpecification(Color color) {
-        this.color = color;
-    }
+public record ColorSpecification(
+        Color color) implements Specification<Product> {
 
     @Override
     public boolean isSatisfied(Product item) {
