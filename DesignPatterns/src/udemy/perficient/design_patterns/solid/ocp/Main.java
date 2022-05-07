@@ -25,11 +25,18 @@ public class Main {
         //Simple filter example
         Filter<Product> filter = new SimpleFilter();
 
-        //blue items
+        logger.log(Level.INFO, "Blue items:");
         filter.filter(products, new ColorSpecification(BLUE))
                 .forEach(p -> logger.log(Level.INFO, p::toString));
 
+        logger.log(Level.INFO, "Large items:");
+        filter.filter(products, new SizeSpecification(LARGE))
+                .forEach(p -> logger.log(Level.INFO, p::toString));
 
+        logger.log(Level.INFO, "White and small items");
+        filter.filter(products, new ColorSpecification(WHITE)
+                .and(new SizeSpecification(SMALL)))
+                .forEach(product -> logger.log(Level.INFO, product::toString));
 
     }
 
