@@ -11,4 +11,11 @@ public interface Specification <T>{
                     && spec.isSatisfied(item);
         };
     }
+
+    default Specification<T> or(Specification<T> spec){
+        return item -> {
+          return this.isSatisfied(item)
+                || spec.isSatisfied(item);
+        };
+    }
 }

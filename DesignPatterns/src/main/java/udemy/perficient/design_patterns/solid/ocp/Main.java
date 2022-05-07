@@ -38,6 +38,17 @@ public class Main {
                 .and(new SizeSpecification(SMALL)))
                 .forEach(product -> logger.log(Level.INFO, product::toString));
 
+        logger.log(Level.INFO, "Small or blue items");
+        filter.filter(products, new SizeSpecification(SMALL)
+                .or(new ColorSpecification(BLUE)))
+                .forEach(product -> logger.log(Level.INFO, product::toString));
+
+        logger.log(Level.INFO, "Small or blue or red items");
+        filter.filter(products, new SizeSpecification(SMALL)
+                .or(new ColorSpecification(BLUE))
+                .or(new ColorSpecification(RED)))
+                .forEach(product -> logger.log(Level.INFO, product::toString));
+
     }
 
 }
