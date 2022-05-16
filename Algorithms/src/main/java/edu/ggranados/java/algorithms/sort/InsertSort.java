@@ -54,12 +54,19 @@ public class InsertSort {
 
     private void replaceBackwards(int currentElement, List<Integer> elements, int fromIndex){
 
-        if(isGreaterOrEqualsThan(fromIndex, ZERO) && isLowerThan(currentElement, elements.get(fromIndex))){
-            elements.set(fromIndex + 1, elements.get(fromIndex));
-            elements.set(fromIndex, currentElement);
-            replaceBackwards(currentElement, elements, --fromIndex);
+        if(isGreaterOrEqualsThan(fromIndex, ZERO)) {
+            Integer elementBackwards = elements.get(fromIndex);
+            if (isLowerThan(currentElement, elementBackwards)) {
+                elements.set(oneIndexAhead(fromIndex), elementBackwards);
+                elements.set(fromIndex, currentElement);
+                replaceBackwards(currentElement, elements, --fromIndex);
+            }
         }
 
+    }
+
+    private int oneIndexAhead(int fromIndex) {
+        return fromIndex + 1;
     }
 
     private boolean isGreaterOrEqualsThan(int a, int b) {
