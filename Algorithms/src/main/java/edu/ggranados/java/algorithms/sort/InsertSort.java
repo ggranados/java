@@ -5,6 +5,7 @@ import java.util.List;
 public class InsertSort {
 
     public static final int ZERO = 0;
+    public static final int FIRST_CURRENT_INDEX = 1;
 
     public List<Integer> sort(List<Integer> elements){
 
@@ -26,16 +27,25 @@ public class InsertSort {
         return elements;
     }
 
+    public List<Integer> sortRecursive(List<Integer> elements){
+        return sortRecursive(elements, FIRST_CURRENT_INDEX);
+    }
+
     public List<Integer> sortRecursive(List<Integer> elements, int currentIndex){
 
-        if( isLowerThan( currentIndex , elements.size()) ) {
-            int currentElement = elements.get(currentIndex);
-            int fromIndex = currentIndex - 1;
-            replaceBackwards(currentElement, elements, fromIndex);
-            return sortRecursive(elements, ++currentIndex);
+        if (sizeHasBeenExceeded(elements.size(), currentIndex)) {
+            return elements;
         }
 
-        return elements;
+        int currentElement = elements.get(currentIndex);
+        int fromIndex = currentIndex - 1;
+        replaceBackwards(currentElement, elements, fromIndex);
+        return sortRecursive(elements, ++currentIndex);
+
+    }
+
+    private boolean sizeHasBeenExceeded(int size, int currentIndex) {
+        return !isLowerThan(currentIndex, size);
     }
 
     private boolean isLowerThan( int a, int b) {

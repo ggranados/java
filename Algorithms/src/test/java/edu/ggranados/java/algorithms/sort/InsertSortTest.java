@@ -42,7 +42,7 @@ class InsertSortTest {
         System.out.println(elements);
 
         //When
-        var sortedElements = insertSort.sortRecursive(elements,1);
+        var sortedElements = insertSort.sortRecursive(elements);
         System.out.println(sortedElements);
 
 
