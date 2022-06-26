@@ -1,37 +1,20 @@
 package edu.ggranados.java.algorithms.sort;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
-public class InsertSort {
-
+@Component("insertSorterRecursive")
+public class InsertSorterRecursive implements Sorter<Integer> {
     public static final int ZERO = 0;
     public static final int FIRST_CURRENT_INDEX = 1;
 
+    @Override
     public List<Integer> sort(List<Integer> elements){
-
-        for(int j = 1; j < elements.size(); j++){
-
-            int key = elements.get(j);
-
-            int i = j -1;
-
-            while( i >= 0 && key < elements.get(i)) {
-                elements.set(i +1, elements.get(i));
-                elements.set(i, key);
-                i--;
-            }
-
-
-        }
-
-        return elements;
+        return sort(elements, FIRST_CURRENT_INDEX);
     }
 
-    public List<Integer> sortRecursive(List<Integer> elements){
-        return sortRecursive(elements, FIRST_CURRENT_INDEX);
-    }
-
-    public List<Integer> sortRecursive(List<Integer> elements, int currentIndex){
+    private List<Integer> sort(List<Integer> elements, int currentIndex){
 
         if (sizeHasBeenExceeded(elements.size(), currentIndex)) {
             return elements;
@@ -40,8 +23,8 @@ public class InsertSort {
         int currentElement = elements.get(currentIndex);
         int fromIndex = currentIndex - 1;
         replaceBackwards(currentElement, elements, fromIndex);
-        return sortRecursive(elements, ++currentIndex);
 
+        return sort(elements, ++currentIndex);
     }
 
     private boolean sizeHasBeenExceeded(int size, int currentIndex) {
@@ -72,6 +55,5 @@ public class InsertSort {
     private boolean isGreaterOrEqualsThan(int a, int b) {
         return a >= b;
     }
-
 
 }
