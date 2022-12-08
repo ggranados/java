@@ -14,9 +14,9 @@ class StringBackwardsAndCleanProcessorTest {
     }
 
     @Test
-    public void shouldRevertAndCleanString(){
+    void shouldRevertAndCleanString(){
         String srt = "ABC#$%123";
-        String result = processor.process(srt);
+        String result = processor.apply(srt);
 
         assertEquals("321CBA",result);
     }
