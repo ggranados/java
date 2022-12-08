@@ -13,13 +13,13 @@ public class StringBackwardsAndCleanProcessor implements UnaryOperator<String> {
     public String apply(String str) {
         StringBuilder sb = new StringBuilder();
 
-        Predicate<String> isSpecialPredicate =
+        Predicate<String> isSpecialChar =
                 strChar -> special.matcher(strChar).find();
 
         String cleaned = str.chars()
                .mapToObj(c -> (char)c)
                .map(String::valueOf)
-               .filter(isSpecialPredicate.negate())
+               .filter(isSpecialChar.negate())
                .collect(Collectors.joining());
 
         return sb.append(cleaned).reverse().toString();
