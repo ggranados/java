@@ -1,19 +1,26 @@
 package org.java17.streams.challenges;
 
-import java.util.Locale;
 import java.util.stream.IntStream;
 
 public class PalindromeChecker {
 
     public static void main(String[] args) {
-        var palindrome = "civIC";
         PalindromeChecker palindromeChecker = new PalindromeChecker();
-        var result = palindromeChecker.checkDeclaratively(palindrome);
-        assert result;
 
-        var noPalindrome = "sdfhgfg";
-        result = palindromeChecker.checkDeclaratively(noPalindrome);
-        assert !result;
+        var stringToCheck = "civIC";
+        assert palindromeChecker.check(stringToCheck);
+        assert palindromeChecker.checkSequentially(stringToCheck);
+        assert palindromeChecker.checkDeclaratively(stringToCheck);
+
+        stringToCheck = "anitaLavaLaTina";
+        assert palindromeChecker.check(stringToCheck);
+        assert palindromeChecker.checkSequentially(stringToCheck);
+        assert palindromeChecker.checkDeclaratively(stringToCheck);
+
+        stringToCheck = "asdpso";
+        assert !palindromeChecker.check(stringToCheck);
+        assert !palindromeChecker.checkSequentially(stringToCheck);
+        assert !palindromeChecker.checkDeclaratively(stringToCheck);
 
     }
 
@@ -39,7 +46,11 @@ public class PalindromeChecker {
         var normalized = string.toLowerCase();
 
         return IntStream.range(0, string.length()/2)
-                .allMatch((i)-> normalized.charAt(i) == normalized.charAt(normalized.length()-1-i));
+                .allMatch( i-> normalized.charAt(i) ==
+                        normalized.charAt(
+                                normalized.length()-1-i
+                        )
+                );
 
     }
 }
