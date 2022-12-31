@@ -29,24 +29,30 @@ public class PalindromeChecker {
 
     private Boolean check(String string) {
 
-        String reversed = new StringBuilder(string.toLowerCase()).reverse().toString();
+        String normalized = normalize(string);
+        String reversed = new StringBuilder(normalized).reverse().toString();
 
-        return string.toLowerCase().equals(reversed);
+        return normalized.equals(reversed);
+    }
+
+    private String normalize(String string) {
+        return string.trim().toLowerCase();
     }
 
     private Boolean checkSequentially(String string){
+        String normalized = normalize(string);
         var reversed = new StringBuilder();
-        var array = string.toLowerCase().toCharArray();
+        var array = normalized.toCharArray();
 
         for(int i=array.length-1; i>=0; i--){
             reversed.append(array[i]);
         }
 
-        return string.toLowerCase().equals(reversed.toString());
+        return normalized.equals(reversed.toString());
     }
 
     private Boolean checkDeclaratively(String string){
-        var normalized = string.toLowerCase();
+        var normalized = normalize(string);
 
         return IntStream.range(0, string.length()/2)
                 .allMatch( i-> normalized.charAt(i) ==
