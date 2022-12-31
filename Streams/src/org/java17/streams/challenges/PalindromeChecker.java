@@ -4,23 +4,26 @@ import java.util.stream.IntStream;
 
 public class PalindromeChecker {
 
+    public static final String NOT_A_PALINDROME = "String %s is not a palindrome";
+    public static final String A_PALINDROME = "String %s is a palindrome";
+
     public static void main(String[] args) {
         PalindromeChecker palindromeChecker = new PalindromeChecker();
 
         var stringToCheck = "civIC";
-        assert palindromeChecker.check(stringToCheck);
-        assert palindromeChecker.checkSequentially(stringToCheck);
-        assert palindromeChecker.checkDeclaratively(stringToCheck);
+        assert palindromeChecker.check(stringToCheck) : String.format(NOT_A_PALINDROME, stringToCheck);
+        assert palindromeChecker.checkSequentially(stringToCheck) : String.format(NOT_A_PALINDROME, stringToCheck);
+        assert palindromeChecker.checkDeclaratively(stringToCheck) : String.format(NOT_A_PALINDROME, stringToCheck);
 
         stringToCheck = "anitaLavaLaTina";
-        assert palindromeChecker.check(stringToCheck);
-        assert palindromeChecker.checkSequentially(stringToCheck);
-        assert palindromeChecker.checkDeclaratively(stringToCheck);
+        assert palindromeChecker.check(stringToCheck) : String.format(NOT_A_PALINDROME, stringToCheck);
+        assert palindromeChecker.checkSequentially(stringToCheck) : String.format(NOT_A_PALINDROME, stringToCheck);
+        assert palindromeChecker.checkDeclaratively(stringToCheck) : String.format(NOT_A_PALINDROME, stringToCheck);
 
-        stringToCheck = "asdpso";
-        assert !palindromeChecker.check(stringToCheck);
-        assert !palindromeChecker.checkSequentially(stringToCheck);
-        assert !palindromeChecker.checkDeclaratively(stringToCheck);
+        stringToCheck = "ouiuthg";
+        assert !palindromeChecker.check(stringToCheck) : String.format(A_PALINDROME, stringToCheck);
+        assert !palindromeChecker.checkSequentially(stringToCheck) : String.format(A_PALINDROME, stringToCheck);
+        assert !palindromeChecker.checkDeclaratively(stringToCheck) : String.format(A_PALINDROME, stringToCheck);
 
     }
 
