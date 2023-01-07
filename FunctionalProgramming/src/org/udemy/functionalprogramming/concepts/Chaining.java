@@ -6,7 +6,7 @@ public class Chaining {
 
     public static void main(String[] args) {
 
-        MyConsumer<String> c1 = s -> System.out::println;
+        MyConsumer<String> c1 = System.out::println;
         MyConsumer<String> c2 = s -> System.out.println(s.toUpperCase());
 
         //c1.accept("Hello");
