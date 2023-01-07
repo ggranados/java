@@ -1,4 +1,4 @@
-package org.udemy.functionalprogramming.concepts;
+package org.udemy.functionalprogramming.concepts.chaining;
 
 import java.util.Objects;
 
