@@ -1,0 +1,47 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "vmArgs": "-ea"
+        },
+        {
+            "type": "java",
+            "name": "Launch FindMostUsedWordInString",
+            "request": "launch",
+            "mainClass": "org.java17.streams.challenges.FindMostUsedWordInString",
+            "projectName": "Streams_5273d7bb",
+            "vmArgs": "-ea"
+        },
+        {
+            "type": "java",
+            "name": "Launch IntegerToBinaryConverter",
+            "request": "launch",
+            "mainClass": "org.java17.streams.challenges.IntegerToBinaryConverter",
+            "projectName": "Streams_5273d7bb",
+            "vmArgs": "-ea"
+        },
+        {
+            "type": "java",
+            "name": "Launch InvertStringWIthStream",
+            "request": "launch",
+            "mainClass": "org.java17.streams.challenges.InvertStringWIthStream",
+            "projectName": "Streams_5273d7bb",
+            "vmArgs": "-ea"
+        },
+        {
+            "type": "java",
+            "name": "Launch PalindromeChecker",
+            "request": "launch",
+            "mainClass": "org.java17.streams.challenges.PalindromeChecker",
+            "projectName": "Streams_5273d7bb",
+            "vmArgs": "-ea"
+        }
+    ]
+}
