@@ -29,7 +29,7 @@ public class FactorialCalculatorTailRecursive {
     public long apply(int n, long accumulator) {
         if(n < 0 ) throw new IllegalArgumentException("Invalid value for n=" + n);
 
-        if(n <= 1 ) return accumulator;
+        if(n == 0 ) return accumulator;
 
         return apply(n-1, accumulator * n);
     }
