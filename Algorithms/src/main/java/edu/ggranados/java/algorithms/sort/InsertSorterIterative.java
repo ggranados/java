@@ -12,25 +12,20 @@ public class InsertSorterIterative implements Sorter<Integer> {
     @Override
     public List<Integer> sort(List<Integer> elements){
 
-        for(int j = 1; j < elements.size(); j++){
+        for (int currIndex = 1; currIndex < elements.size(); currIndex++) {
 
-            int key = elements.get(j);
+            int prevIndex = currIndex - 1;
+            var current = elements.get(currIndex);
 
-            int i = j -1;
-
-            while( i >= 0 && key < elements.get(i)) {
-                elements.set(i +1, elements.get(i));
-                elements.set(i, key);
-                i--;
+            while (prevIndex >= 0 && current < elements.get(prevIndex)) {
+                elements.set(prevIndex + 1, elements.get(prevIndex));
+                elements.set(prevIndex, current);
+                prevIndex--;
             }
-
 
         }
 
         return elements;
     }
-
-
-
 
 }
