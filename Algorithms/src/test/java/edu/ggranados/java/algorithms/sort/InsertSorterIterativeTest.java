@@ -1,5 +1,6 @@
 package edu.ggranados.java.algorithms.sort;
 
+import edu.ggranados.java.algorithms.sort.insert.InsertSorterIterative;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class InsertSorterIterativeTest {
 
-    private final InsertSorterIterative insertSort = new InsertSorterIterative();
+    private final InsertSorterIterative sorter = new InsertSorterIterative();
 
     @Test
     void testSortWithFixedElement() {
@@ -20,7 +21,7 @@ class InsertSorterIterativeTest {
         System.out.println(elements);
 
         //When
-        var sortedElements = insertSort.sort(new ArrayList<>(elements));
+        var sortedElements = sorter.sort(new ArrayList<>(elements));
         System.out.println(sortedElements);
 
 
@@ -49,11 +50,11 @@ class InsertSorterIterativeTest {
     @Test
     void testSortWithRandomElement() {
         //Given
-        final List<Integer> elements = getIntegerList();
+        final List<Integer> elements = getIntegerList(5);
         System.out.println(elements);
 
         //When
-        var sortedElements = insertSort.sort(new ArrayList<>(elements));
+        var sortedElements = sorter.sort(new ArrayList<>(elements));
         System.out.println(sortedElements);
 
 

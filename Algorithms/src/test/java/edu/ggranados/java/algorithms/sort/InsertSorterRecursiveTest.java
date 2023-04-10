@@ -1,5 +1,6 @@
 package edu.ggranados.java.algorithms.sort;
 
+import edu.ggranados.java.algorithms.sort.insert.InsertSorterRecursive;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ class InsertSorterRecursiveTest {
     @Test
     void testSortRecursive(){
         //Given
-        elements.addAll(getIntegerList());
+        elements.addAll(getIntegerList(5));
         System.out.println(elements);
 
         //When

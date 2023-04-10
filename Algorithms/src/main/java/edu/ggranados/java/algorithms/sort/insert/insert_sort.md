@@ -21,6 +21,13 @@ for i = 1 to n-1
         swap list[j+1] and list[j]
         j = j --
 ```
-In this pseudocode, list is the array of elements to be sorted, and n is the length of the array. The outer loop iterates through the unsorted part of the list, and the inner loop finds the correct position for the current element in the sorted sublist. 
 
-Insertion sort has a time complexity of **O(n^2)** in the worst case, but it can be very efficient for small input sizes or nearly sorted input. It is also an in-place sorting algorithm, meaning it doesn't require any additional memory allocation beyond the original array.
+Explanation:
+
+In this pseudocode, list is the array of elements to be sorted, and n is the length of the array. The outer loop
+iterates through the unsorted part of the list, and the inner loop finds the correct position for the current element in
+the sorted sublist.
+
+Insertion sort has a time complexity of **O(n^2)** in the worst case, but it can be very efficient for small input sizes
+or nearly sorted input. It is also an in-place sorting algorithm, meaning it doesn't require any additional memory
+allocation beyond the original array.

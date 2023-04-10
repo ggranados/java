@@ -16,15 +16,15 @@ public final class IntegerUtils {
 
     private IntegerUtils() {}
 
-    public static List<Integer> getIntegerList(){
+    public static List<Integer> getIntegerList(int size) {
         Random random;
         try {
             random = SecureRandom.getInstanceStrong();
-            IntStream randStream = random.ints(5);
+            IntStream randStream = random.ints(size);
             return randStream.boxed().toList();
         } catch (NoSuchAlgorithmException e) {
             logger.warn("Could not create secure random");
-            return Arrays.asList(1,5,2,3,4,6,7,5,2);
+            return Arrays.asList(1, 5, 2, 3, 4, 6, 7, 5, 2);
         }
 
     }

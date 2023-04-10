@@ -1,5 +1,6 @@
-package edu.ggranados.java.algorithms.sort;
+package edu.ggranados.java.algorithms.sort.insert;
 
+import edu.ggranados.java.algorithms.sort.Sorter;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
