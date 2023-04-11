@@ -1,6 +1,5 @@
-package edu.ggranados.java.algorithms.sort;
+package edu.ggranados.java.algorithms.sort.insert;
 
-import edu.ggranados.java.algorithms.sort.insert.InsertSorterIterative;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
