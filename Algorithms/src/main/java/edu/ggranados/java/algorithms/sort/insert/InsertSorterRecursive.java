@@ -5,7 +5,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component("insertSorterRecursive")
 public class InsertSorterRecursive implements Sorter<Integer> {
     public static final int ZERO = 0;
     public static final int FIRST_CURRENT_INDEX = 1;

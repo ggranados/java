@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Lazy
-@Component("insertSorterIterative")
 public class InsertSorterIterative implements Sorter<Integer> {
 
     @Override
