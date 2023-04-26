@@ -1,10 +1,9 @@
 package edu.ggranados.java.exercises.strings;
 
-import edu.ggranados.java.exercises.strings.StringBackwardsAndCleanProcessor;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StringBackwardsAndCleanProcessorTest {
 
