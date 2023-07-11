@@ -5,7 +5,7 @@ import org.linkedinlearning.functionalprogramming.pojo.Employee;
 import java.util.Comparator;
 import java.util.function.Consumer;
 
-public class Lambda1 {
+public class LambdaExpressionSyntax {
 
     @SuppressWarnings("unused")
     public static void main(String[] args) {
