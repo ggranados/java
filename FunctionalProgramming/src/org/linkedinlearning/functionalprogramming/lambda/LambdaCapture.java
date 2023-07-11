@@ -1,56 +1,59 @@
 package org.linkedinlearning.functionalprogramming.lambda;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.function.Consumer;
 
 public class LambdaCapture {
 
-    private final static int FIELD_WIDTH = 20;
-    private static JTextField staticTextField;
+	public static void main(String[] args) {
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame();
+		// Anonymous class, multiple instances	
+		System.out.println("\nAnonymous class:");
+		for (int i=0; i<5; i++) {
+			Consumer<String> myPrinter1 = new Consumer<String>() {
+				@Override
+				public void accept(String msg) {
+					System.out.println("Consuming " + msg);
+				}
+			};
+			myPrinter1.accept(myPrinter1.toString());
+		}
 
-        staticTextField = new JTextField(FIELD_WIDTH);
-        staticTextField.setText("Static field");
+		// Non-capturing lambda, one instance
+		System.out.println("\nNon-capturing lambda:");
+		for (int i=0; i<5; i++) {
+			Consumer<String> myPrinter2 =
+					msg -> System.out.println("Consuming " + msg);
 
-        JTextField localTextField = new JTextField(FIELD_WIDTH);
-        localTextField.setText("Local variable");
+			myPrinter2.accept(myPrinter2.toString());
+		}
 
-        JButton helloButton = new JButton("Say Hello");
 
-        // For this we use a regular anonymous class
-        helloButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                staticTextField.setText("Hello, world!");
-                localTextField.setText("Hello, world");
-            }
-        });
+		// Constant-capturing lambda, one instance
+		System.out.println("\nConstant-capturing lambda:");
+		final int secret = 42;
+		for (int i = 0; i < 5; i++) {
+			Consumer<String> myPrinter3 =
+					msg -> System.out.println("Consuming " + msg + ", " + secret);
 
-        // For this we use a lambda expression (actually, block)
-        JButton goodbyeButton = new JButton("Say Goodbye");
-        goodbyeButton.addActionListener( event -> {
-            staticTextField.setText("Goodbye, world!");
-            localTextField.setText("Goodbye, world");
-        });
+			myPrinter3.accept(myPrinter3.toString());
+		}
 
-        Container contentPane = frame.getContentPane();
-        contentPane.setLayout(new FlowLayout());
-        contentPane.add(staticTextField);
-        contentPane.add(localTextField);
-        contentPane.add(helloButton);
-        contentPane.add(goodbyeButton);
 
-        // staticTextField = null;
-        // localTextField = null;
+		(new LambdaCapture()).foo();
 
-        frame.setAlwaysOnTop( true );
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
+	}
 
-    }
+	private int id = 1;
+	public void foo() {
+		System.out.println("\nInstance-capturing lambda:");
+
+		for (int i=0; i<5; i++) {
+			// this-capturing lambda, many instances!
+			Consumer<String> myPrinter4 =
+					msg -> System.out.println("Consuming " + msg + ", " + id);
+
+			myPrinter4.accept(myPrinter4.toString());
+		}
+	}
+
 }
